@@ -4,7 +4,7 @@ namespace Hx\Route;
 class Info implements InfoInterface {
 	private $uri, $method, $closure;
 	
-	public function __construct($uri, $method, Closure $closure)
+	public function __construct($uri, $method, \Closure $closure)
 	{
 		$this->uri = $uri;
 		

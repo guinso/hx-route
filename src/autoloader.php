@@ -5,8 +5,10 @@ function HxRouteAutoload($className)
 {
 	$xx = explode('\\', $className);
 	
-	if($xx[0] == 'Hx\\Route') {
+	if($xx[0] == 'Hx' && $xx[1] == 'Route') {
 
+		array_shift($xx);
+		
 		$xx[0] = __DIR__;
 		$filePath = join(DIRECTORY_SEPARATOR, $xx) . '.php';
 

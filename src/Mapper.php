@@ -1,7 +1,7 @@
 <?php 
 namespace Hx\Route;
 
-class Mapper implements \Hx\Route\MapLoaderInterface {
+class Mapper implements \Hx\Route\MapperInterface {
 	
 	private $lut;
 	
