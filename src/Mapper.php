@@ -1,4 +1,6 @@
 <?php 
+declare(strict_types=1);
+
 namespace Hx\Route;
 
 class Mapper implements \Hx\Route\MapperInterface {
@@ -18,7 +20,7 @@ class Mapper implements \Hx\Route\MapperInterface {
 		$this->lut = $mapTable;
 	}
 	
-	public function find($requestUri, $method)
+	public function find(string $requestUri, string $method): MatchInterface
 	{
 		return $this->_loopSearch(
 			$this->lut, 
@@ -27,7 +29,7 @@ class Mapper implements \Hx\Route\MapperInterface {
 		);
 	}
 	
-	private function _loopSearch(Array $table, $method, $requestUri)
+	private function _loopSearch(Array $table, string $method, string $requestUri): MatchInterface
 	{
 		if(COUNT($table) > 0)
 		{
@@ -56,7 +58,7 @@ class Mapper implements \Hx\Route\MapperInterface {
 		}
 	}
 	
-	private function _isMatch(InfoInterface $info, $method, $uri)
+	private function _isMatch(InfoInterface $info, string $method, string $uri): bool
 	{
 		return 
 			$info->getReqMethod() == $method && 
@@ -65,7 +67,7 @@ class Mapper implements \Hx\Route\MapperInterface {
 				$uri) === 1;
 	}
 	
-	private function shiftArray(array $args)
+	private function shiftArray(array $args):array
 	{
 		array_shift($args);
 

@@ -9,6 +9,6 @@ interface MapperInterface {
 	 * @param string $method
 	 * @return \Hx\Route\MatchInterface
 	 */
-	public function find($requestUri, $method);
+	public function find(string $requestUri, string $method): MatchInterface;
 }
 ?>

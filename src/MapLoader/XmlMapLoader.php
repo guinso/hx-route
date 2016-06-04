@@ -15,12 +15,12 @@ class XmlMapLoader implements \Hx\Route\MapLoader\MapLoaderInterface {
 		$this->fileService = $fileService;
 	}
 
-	public function loadFile($filePath)
+	public function loadFile(string $filePath): array
 	{
 		return $this->loadSingleFile($filePath);
 	}
 	
-	public function loadDir($directory)
+	public function loadDir(string $directory): array
 	{
 		$lut = array();
 	
@@ -39,7 +39,7 @@ class XmlMapLoader implements \Hx\Route\MapLoader\MapLoaderInterface {
 		return $lut;
 	}
 	
-	private function loadSingleFile($filePath)
+	private function loadSingleFile(string $filePath): array
 	{
 		if (!file_exists($filePath))
 		{
@@ -60,12 +60,12 @@ class XmlMapLoader implements \Hx\Route\MapLoader\MapLoaderInterface {
 		}
 	}
 	
-	public function loadString($content)
+	public function loadString(string $content): array
 	{
 		return $this->parse($content, 'memory string');
 	}
 
-	private function parse($content, $filePath) 
+	private function parse(string $content, string $filePath): array
 	{
 		$xmlObj = simplexml_load_string($content);
 
@@ -140,7 +140,7 @@ class XmlMapLoader implements \Hx\Route\MapLoader\MapLoaderInterface {
 		
 	}
 	
-	private function parseBool($value)
+	private function parseBool(string $value): bool
 	{
 		if(mb_strtolower($value) == 'true')
 			return true;

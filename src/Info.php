@@ -1,10 +1,12 @@
 <?php 
+declare(strict_types=1);
+
 namespace Hx\Route;
 
 class Info implements InfoInterface {
 	private $uri, $method, $closure;
 	
-	public function __construct($uri, $method, \Closure $closure)
+	public function __construct(string $uri, string $method, \Closure $closure)
 	{
 		$this->uri = $uri;
 		
@@ -13,17 +15,17 @@ class Info implements InfoInterface {
 		$this->closure = $closure;
 	}
 
-	public function getUri()
+	public function getUri(): string
 	{
 		return $this->uri;
 	}
 
-	public function getReqMethod()
+	public function getReqMethod(): string
 	{
 		return $this->method;
 	}
 
-	public function getClosure()
+	public function getClosure(): \Closure
 	{
 		return $this->closure;
 	}

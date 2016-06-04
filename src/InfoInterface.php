@@ -1,21 +1,26 @@
 <?php 
+declare(strict_types=1);
+
 namespace Hx\Route;
 
 interface InfoInterface {
 	
 	/**
 	 * Get URI patern
+	 * @return string
 	 */
-	public function getUri();
+	public function getUri(): string;
 	
 	/**
 	 * Get http request method name
+	 * @return string
 	 */
-	public function getReqMethod();
+	public function getReqMethod(): string;
 	
 	/**
-	 * Get closure
+	 * Get anonymous function
+	 * @return \Closure
 	 */
-	public function getClosure();
+	public function getClosure(): \Closure;
 }
 ?>

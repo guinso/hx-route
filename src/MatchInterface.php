@@ -3,8 +3,16 @@ namespace Hx\Route;
 
 interface MatchInterface {
 	
-	public function getInfo();
+	/**
+	 * Get matched info
+	 * @return InfoInterface
+	 */
+	public function getInfo(): InfoInterface;
 
-	public function getArgs();
+	/**
+	 * Get arguments passed from user request
+	 * @return array
+	 */
+	public function getArgs(): array;
 }
 ?>

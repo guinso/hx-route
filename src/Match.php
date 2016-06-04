@@ -12,12 +12,12 @@ class Match implements MatchInterface {
 		$this->args = $arguments;
 	}
 	
-	public function getInfo()
+	public function getInfo():InfoInterface 
 	{
 		return $this->info;
 	}
 	
-	public function getArgs()
+	public function getArgs(): array
 	{
 		return $this->args;
 	}
